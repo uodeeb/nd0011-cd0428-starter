@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 :root {
     --lightBG:#fff8f3;
     --onLightBG:#201b13;
@@ -9,7 +14,7 @@
 }
 
 body {
-    width: 100dvw;
+    width: 100vw;
     overflow-x: hidden;
     overflow-y: auto;
     background-color:var(--lightBG);
@@ -29,13 +34,16 @@ button:hover {
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     border-bottom: 2px solid var(--onLightBG);
 
     & h1 {
         padding: 0 0 0 20px;
+        flex: 3;
+        text-align: center;
     }
+
 }
 
 html {
@@ -53,11 +61,12 @@ nav {
     margin: 0 20px 0 0;
     width: 30%;
     display: flex;
-    flex: 0 0 auto;
+    flex: 3;
     justify-content: flex-end;
 
     & a {
         text-decoration: none;
+        color: var(--lightBG);
     }
 
     & ul {
@@ -83,12 +92,21 @@ nav {
 }
 
 #aboutMeContainer {
-    margin: 0 0 50px 0;
-    padding: 20px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vh;
+    margin: 0 0 0px 0;
+    padding: 10vh;
 
     & h2,
     & p {
         padding: 0 20px 0 20px;
+    }
+    & img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
     }
 }
 
@@ -114,9 +132,11 @@ nav {
 }
 
 #contactContainer {
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 50px 0 50px 0;
-    padding: 0 20px 0 20px;
+    padding: 10vh;
 
 }
 
@@ -136,8 +156,8 @@ nav {
 }
 
 #projectsContainer {
-    margin: 50px 0 50px 0;
-    padding: 20px 0 0 0;
+    margin: 10px 0 50px 0;
+    padding: 10vh;
 
 
     & h2 {
@@ -169,20 +189,50 @@ nav {
     margin: 20px 0;
     flex: 0 0 auto;
 }
+.arrow-left,
+.arrow-right {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    margin: 10px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
 
+}
 #projectSection {
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin:20px 0 0 0 ;
+    margin:10px ;
+    padding:  40px;
+}
+#viewProject {
+    border: 1px solid var(--LightBG);
+    background-color: none!important;
+    color: var(--LightBG);
+    padding: 10px;
+    border-radius: 10px;
+    transition: all .3s;
 }
 
-#projectSpotlight {
-    margin: 10px 0;
-    width: 90%;
-    height: 600px;
+#viewProject a {
+    text-decoration: none;
+    color: var(--LightBG);
+}
+
+
+
+
+
+.projectSpotlight {
+
     border-radius: 10px;
+    padding: 10px;
 }
 
 
@@ -197,6 +247,11 @@ nav {
     }
 }
 
+.spotlightImage {
+    width: 100%;
+    height: 500PX;
+    object-fit: cover;
+}
 .active {
     opacity: 1;
 }
@@ -220,6 +275,11 @@ nav {
     width: 20px;
     height: 20px;
     cursor: pointer;
+}
+
+.arrow-right:hover,
+.arrow-left:hover {
+    background-color: orange;
 }
 
 .arrow-right::before {
@@ -309,7 +369,7 @@ nav {
     & p {
         color: var(--lightBG);
         text-shadow: 2px 2px 3px var(--onLightBG);
-        
+        font-size: 0.9rem;
 
     }
 
@@ -343,6 +403,9 @@ nav {
 
     #projectSpotlight {
         width:70%;
+        & img {
+            height: 300px;
+        }
     }
 
     #projectList {
@@ -361,9 +424,13 @@ nav {
     .arrow-right {
         transform: rotate(90deg);
     }
+    
 }
 
-@media (width >= 768px){
+@media ((width >= 768px) and (width < 1024px)) {
+    body {
+        font-size: 1.4rem;
+    }
     #aboutMe {
         flex-direction:row;
         align-items: flex-start;
@@ -381,6 +448,19 @@ nav {
         width:30%;
         max-width:600px;
     }
+
+    #aboutMeContainer {
+        flex-direction: column;
+        padding: 2vh;
+    }
+
+    #projectsContainer, #projectSection {
+        padding: 0.5rem;
+    }
+
+    #contactContainer {
+        padding: 2vh;
+    }
 }
 
 /* Hide scrollbar for WebKit browsers (Chrome, Safari) on mobile devices */
@@ -388,12 +468,27 @@ nav {
     body::-webkit-scrollbar {
         display: none;
     }
-
+    header h1 {
+        font-size: 1.5rem;
+    }
     /* Hide scrollbar for other browsers on mobile devices */
     body {
         -ms-overflow-style: none;
         /* IE and Edge */
         /* scrollbar-width: none;   */
+    }
+
+    #aboutMeContainer {
+        flex-direction: column;
+        padding: 2vh;
+    }
+
+    #projectsContainer, #projectSection {
+        padding: 0.5rem;
+    }
+
+    #contactContainer {
+        padding: 2vh;
     }
 
     
