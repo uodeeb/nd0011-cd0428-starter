@@ -150,9 +150,14 @@ nav {
     }
 }
 
-#messageError, #emailError {
-    color:var(--error);
+#emailError, #messageError {
+    color: var(--error);
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
 
+#charactersLeft.error {
+    color: var(--error);
 }
 
 #projectsContainer {
